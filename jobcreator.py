@@ -29,12 +29,18 @@ jobTemplate = open(jobtemplate).read()
 for file_in in files_in:
 	n = get_file_number(file_in)
 	city_commands = ""
+
+    ## check if job already exists ####
+    job  = jobsdir + f"/{n}.job"
+    if os.path.exists(job): continue
+
+    #### create job ####
 	for i, city in enumerate(cities):
 		if i != 0:
 			file_in = proddir + city_input[city] + "/" + production_filename_structure.format(city=city_input[city], n=n, tag=tag)
 		file_out    = proddir + city             + "/" + production_filename_structure.format(city=city            , n=n, tag=tag)
 
-		#### create	config ####
+		#### create city config ####
 		configtemplate = configTemplates_dir + configTemplate_filename_structure.format(city=city)
 		configTemplate = open(configtemplate).read()
 		config = configdir + city + f"_{n}.conf"
@@ -45,8 +51,6 @@ for file_in in files_in:
 
 		city_commands += f"city {city} {config}\n"
 
-	#### create job ####
-	job  = jobsdir + f"/{n}.job"
 	with open(job, "w") as jobfile:
 		jobfile.write(jobTemplate.format(jobname     = f"{n}",
                                          logfilename = logsdir + f"{n}.log",
