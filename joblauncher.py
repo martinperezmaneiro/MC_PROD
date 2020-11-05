@@ -20,12 +20,12 @@ jobs.sort(key=lambda filename: int(filename.split("/")[-1].split(".")[0]))
 ####################
 for job in jobs:
 
-    #check_jobs(queue_state_command, nmin=queue_limit)
+    check_jobs(queue_state_command, nmin=queue_limit)
 
     #### launch job ####
-    # cmd = joblaunch_command.format(filename = job)
-    # subprocess.run(cmd)
+    cmd = joblaunch_command.format(filename = job)
     print("Launching job", job)
+    subprocess.run(cmd)
 
 
 #     #### launch job ####
