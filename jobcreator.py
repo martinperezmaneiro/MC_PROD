@@ -15,10 +15,10 @@ proddir   = basedir + loc + "/prod/"
 jobsdir   = basedir + loc + "/jobs/"
 configdir = basedir + loc + "/config/"
 logsdir   = basedir + loc + "/logs/"
-checkmakedir(proddir)
 checkmakedir(jobsdir)
 checkmakedir(configdir)
 checkmakedir(logsdir)
+for city in cities: checkmakedir(proddir + city)
 
 
 ###################################
