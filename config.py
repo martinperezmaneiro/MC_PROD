@@ -6,11 +6,13 @@ loc = "/prueba"
 tag = "tag"
 
 indir  =  basedir + "/nexus/"
-cities = ["detsim", "hypathia", "penthesilea", "esmeralda"] # order is important
+cities = ["detsim", "hypathia", "penthesilea"] # order is important
 
 detector_db = "next100"
 queue_limit = 199
 
+scratched   = False
+scratch_dir = "$LUSTRE_SCRATCH"
 
 # directory of job and config Templates.
 # Following above, configTemplat_dir must contain "{city}Template.conf" files
@@ -19,9 +21,6 @@ queue_limit = 199
 # have to be introduced. files_in and files_out are automatically filled
 jobTemplates_dir    = os.path.expandvars("$PWD/templates/")
 configTemplates_dir = os.path.expandvars("$PWD/templates/")
-
-# jobTemplates_dir    = os.path.expandvars("$HOME/IC_PRODUCTION")
-# configTemplates_dir = os.path.expandvars("$HOME/IC_PRODUCTION/configTemplates")
 
 
 # WARNING: Modifying this setting will require code changes below.
@@ -46,7 +45,7 @@ def check_filename_structure(filename):
 ############################
 files_in = glob.glob(indir + "/*.h5")
 for file_in in files_in: check_filename_structure(file_in)
-files_in.sort(key=get_file_number)
+files_in = sorted(files_in, key=get_file_number)
 
 
 ###########################

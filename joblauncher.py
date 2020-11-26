@@ -12,7 +12,7 @@ from config import joblaunch_command
 
 jobsdir = basedir + loc + "/jobs/"
 jobs = glob.glob(jobsdir + "/*")
-jobs.sort(key=lambda filename: int(filename.split("/")[-1].split(".")[0]))
+jobs = sorted(jobs, key=lambda filename: int(filename.split("/")[-1].split(".")[0]))
 
 
 ####################
@@ -25,7 +25,7 @@ for job in jobs:
     #### launch job ####
     cmd = joblaunch_command.format(filename = job)
     print("Launching job", job)
-    subprocess.run(cmd)
+    subprocess.run(cmd, shell=True)
 
 
 #     #### launch job ####
