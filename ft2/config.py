@@ -52,5 +52,5 @@ files_in = sorted(files_in, key=get_file_number)
 ###### JOB LAUNCH #########
 ###########################
 # commands (system dependent)
-queue_state_command = "squeue |grep usciegdl |wc -l"
+queue_state_command = "squeue -r |grep usciegdl |wc -l"
 joblaunch_command   = "sbatch {filename}"
