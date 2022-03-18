@@ -61,4 +61,4 @@ files_in = sorted(files_in, key=get_file_number)
 ###########################
 # commands (system dependent)
 queue_state_command = "squeue -r |grep usciegdl |wc -l"
-joblaunch_command   = "sbatch {filename}"
+joblaunch_command   = "sbatch {jobfilename}"
