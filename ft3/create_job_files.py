@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
         tasks = ""
         for task in tasks_in_batch:
-            tasks += f"srun --ntasks 1 {task} &\n"
+            tasks += f"srun --ntasks 1 --exclusive --cpus-per-task 1 {task} &\n"
 
         # write to file
         filename = os.path.join(jobs_dir, f"job_{batch+1}.sh")
