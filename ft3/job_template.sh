@@ -8,5 +8,7 @@
 #SBATCH --cpus-per-task 1
 #SBATCH --mem-per-cpu 3G
 
+source $STORE/ic_setup.sh
+
 {tasks}
 wait
