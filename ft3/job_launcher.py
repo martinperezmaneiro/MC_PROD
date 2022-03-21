@@ -11,7 +11,7 @@ def check_jobs(cmd, nmin=10, wait=1):
         j = subprocess.run(cmd, shell=True, capture_output=True)
         j = int(j.stdout)
         sleep(wait)
-        if (j == nmin): sleep(100*wait)
+        if (j == nmin): sleep(10*wait)
 
 jobfilenames = glob.glob(os.path.join(jobs_dir, "job_*.sh"))
 
