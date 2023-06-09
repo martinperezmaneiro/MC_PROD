@@ -13,6 +13,7 @@ detector_db = "next100"
 
 file_percentage = 0.1
 
+nexus_dir = basedir + 'prod/nexus/'
 indir  =  basedir + "prod/hypathia/" #the starting city
 cities = ["sophronia", "esmeralda"] # order is important
 
