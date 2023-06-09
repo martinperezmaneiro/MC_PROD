@@ -1,6 +1,6 @@
 import os
+import glob
 import tables as tb
-from glob import glob
 from config import *
 from invisible_cities.io.dst_io import load_dst, df_writer
 
@@ -8,7 +8,7 @@ compr_dir = nexus_dir.replace('/nexus/', '/nexus_compr/')
 os.makedirs(compr_dir, exist_ok=True)
 
 nexus_files = nexus_dir + '*.h5'
-files = sorted(glob(nexus_files), key = lambda x: int(x.split('_')[-2]))
+files = sorted(glob.glob(nexus_files), key = lambda x: int(x.split('_')[-2]))
 
 for f in files:
     cdst = load_dst(f, 'MC', 'configuration')
