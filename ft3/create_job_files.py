@@ -39,6 +39,7 @@ if __name__ == "__main__":
                                             , output = os.path.join(logs_dir, str(batch+1)+".out")
                                             , error  = os.path.join(logs_dir, str(batch+1)+".err")
                                             , tasks_per_job = len(tasks_in_batch)
+                                            , job_time = job_time
                                             , tasks         = tasks))
 
     print(f"{nbatches} jobs created")
